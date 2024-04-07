@@ -1,14 +1,10 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_CREDENTIALS_ID = 'DOCKER_Credentials'
-    }
-
-
-    stages {
-        stage {
-            steps('GIT clone')  {
+ 
+     stages {
+        stage ('GIT clone') {
+            steps {
                 git branch: '', url: 'https://github.com/Jayaprabakara/Capstone-dev.git'
             }
         }
@@ -19,7 +15,7 @@ pipeline {
                 }
         }
 
-stage('Build Docker Image') {
+        stage('Build Docker Image') {
             steps {
                sh './build.sh'
             }
@@ -27,7 +23,10 @@ stage('Build Docker Image') {
 
         stage('Deploy Docker Image') {
             steps {
+               script {
+                    withCredentials([usernamePassword(credentialsId: 'DOCKER_Credentials', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]){
               sh './deploy.sh'   
+                }
             }
         }
     }

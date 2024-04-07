@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "$DOCKER_Credentials_PASSWORD" | docker login -u "$DOCKER_Credentials_USERNAME" --password-stdin
+echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
 if [[ "$GIT_BRANCH" == "origin/dev" ]]; then
     docker tag mywebserver jayaprabakara/dev:latest
