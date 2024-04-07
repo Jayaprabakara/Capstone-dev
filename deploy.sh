@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_CREDENTIALS_ID="DOCKER_Credentials"
+DOCKER_CREDENTIALS_ID="22"
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
