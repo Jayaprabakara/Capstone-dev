@@ -11,6 +11,6 @@ elif [[ "$GIT_BRANCH" == "origin/master" ]]; then
     docker images 
     docker push jayaprabakara/prod
 else
-    echo "It is not a GIT push or Merge request."
+    echo "It is not a GIThub push or Merge request."
     exit 0
 fi
