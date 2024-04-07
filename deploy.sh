@@ -13,6 +13,6 @@ elif [[ "$GIT_BRANCH" == "origin/master" ]]; then
     docker images 
     docker push jayaprabakara/prod
 else
-    echo "It is not a push request"
+    echo "It is not a GIT push request "
     exit 0
 fi
