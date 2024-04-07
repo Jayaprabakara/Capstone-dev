@@ -1,5 +1,5 @@
 #!/bin/bash
-DOCKER_CREDENTIALS_ID = "DOCKER_Credentials"
+DOCKER_CREDENTIALS_ID="DOCKER_Credentials"
 
 echo "$DOCKER_USERNAME" | docker login -u "$DOCKER_USERNAME" --password-stdin
  if [ [ "$GIT_BRANCH" == "origin/dev" ]]{}; then
